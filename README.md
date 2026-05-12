@@ -2,7 +2,7 @@
 
 This project is a rice farm wireless sensor network simulation on a 50m by 50m field using the 802.11b 1 Mbps physical link layer. THe effective maximum threshold is approximately 600 Kbps. THe routing protocol used is the Ad-hoc On-demand Distance Vector (AODV) protocol. 
 
-There are a bases of 25 nodes which may change based on the experiment. The nodes are 1 coordinator, 10 routers, 9 MCP sensors, 4 leaf-wetness sensors, and 1 solar irradiance sensor .
+There are a bases of 25 nodes which may change based on the experiment. The nodes are 1 coordinator, 10 routers, 9 MCP sensors, 4 leaf-wetness sensors, and 1 solar irradiance sensor.
 
 ## Running the code 
 
@@ -21,7 +21,7 @@ After building, one can run the simulation under different stresses either one b
 
 ### Experiment 0
 
-This is the base case scenerio which the other results are compared against. While the above code would run the base case fine, a user can also explicitly define some of the paramters used in the simulation such as with the following code :
+This is the base case scenerio which the other results are compared against. While the above code would run the base case fine, a user can also explicitly define some of the paramters used in the simulation such as with the following code:
 
 ```bash
 ./ns3 run --no-build "rice_farm_wsn --experiment=0 --pktSize=128 --simTime=900"
