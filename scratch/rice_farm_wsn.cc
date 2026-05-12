@@ -1,38 +1,4 @@
-/* rice_farm_wsn.cc
- * ECE 303 - Rice Farm Wireless Sensor Network Simulation
- * 50m x 50m field | 802.11b 1 Mbps PHY (~600 Kbps effective) | AODV routing
- * 25 nodes: 1 coordinator (C), 10 routers (R1-R10), 9 MCP sensors (M1-M9),
- *            4 leaf-wetness sensors (L1-L4), 1 solar irradiance sensor (S1)
- *
- * Build & run:
- *   cd ~/ECE303/ns-3.46.1
- *   cp rice_farm_wsn.cc scratch/rice_farm_wsn.cc
- *   ./ns3 build
- *   ./ns3 run rice_farm_wsn
- *
- * Experiment examples:
- *   ./ns3 run "rice_farm_wsn --experiment=1 --extraNodes=5 --pktSize=128"
- *   ./ns3 run "rice_farm_wsn --experiment=2 --interferers=3 --pktSize=128"
- *   ./ns3 run "rice_farm_wsn --experiment=3 --failNodes=3 --pktSize=128"
- *   ./ns3 run "rice_farm_wsn --experiment=4 --trafficScale=800 --pktSize=1500 --simTime=120"
- *
- * Exp 4 saturation guide (trafficScale=800, 14 sensors):
- *   offered load = trafficScale × 14 × pktSize × 8 / (300 × 1000) Kbps
- *   pktSize=128  →  38 Kbps   (light)
- *   pktSize=512  → 154 Kbps   (moderate)
- *   pktSize=1024 → 307 Kbps   (heavy, near effective limit)
- *   pktSize=1500 → 448 Kbps   (overloaded, expect PDR drop)
- *   pktSize=2000 → 598 Kbps   (saturated)
- *
- * Fixes vs original:
- *   - TxCallback signature corrected to match UdpClient "Tx" trace source
- *   - Removed unused txCount[] vector and its MAX_SENSORS arithmetic
- *   - RxCallback simplified; g_rxPackets used consistently
- *   - Removed pointless (void) cast on DeviceEnergyModelContainer
- *   - Added --pktSize, --simTime command line arguments
- *   - FailNode uses mobility displacement to guarantee node isolation
- *   - FAIL_NODES reordered to fail most critical routers first
- */
+// rice_farm_wsn.cc
 
 #include "ns3/aodv-module.h"
 #include "ns3/applications-module.h"
