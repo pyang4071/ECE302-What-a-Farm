@@ -1,4 +1,5 @@
 echo "Experiment 4"
+./ns3 run --no-build "rice_farm_wsn --experiment=4 --trafficScale=800 --pktSize=64   --simTime=120" &
 ./ns3 run --no-build "rice_farm_wsn --experiment=4 --trafficScale=800 --pktSize=128  --simTime=120" &
 ./ns3 run --no-build "rice_farm_wsn --experiment=4 --trafficScale=800 --pktSize=256  --simTime=120" & 
 ./ns3 run --no-build "rice_farm_wsn --experiment=4 --trafficScale=800 --pktSize=512  --simTime=120" &
